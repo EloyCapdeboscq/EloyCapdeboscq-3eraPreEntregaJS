@@ -68,8 +68,6 @@ const agregarAlCarrito = (id) => {
     localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
-//Mostrar el carrito:
-
 const contenedorCarrito = document.getElementById("contenedorCarrito");
 const verCarrito = document.getElementById("verCarrito");
 
@@ -103,8 +101,6 @@ const mostrarCarrito = () => {
     calcularTotal();
 }
 
-//Eliminar producto del carrito:
-
 const eliminarDelCarrito = (id) => {
     const producto = carrito.find(producto => producto.id === id);
     const indice = carrito.indexOf(producto);
@@ -113,9 +109,6 @@ const eliminarDelCarrito = (id) => {
 
     localStorage.setItem("carrito", JSON.stringify(carrito));
 }
-
-
-//Total de la compra: 
 
 const total = document.getElementById("total");
 
@@ -126,8 +119,6 @@ const calcularTotal = () => {
     })
     total.innerHTML = `$${totalCompra}`;
 }
-
-//Vaciar carrito: 
 
 const vaciarCarrito = document.getElementById("vaciarCarrito");
 
