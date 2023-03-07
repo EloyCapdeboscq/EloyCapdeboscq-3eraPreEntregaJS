@@ -18,7 +18,6 @@ const cafeConMedialunas = new Producto(7, "Cafe Con Medialunas", 650, "img/cafe-
 const capuccinoConTorta = new Producto(8, "Capuccino Con Torta", 900, "img/cafe-torta.jpg");
 
 const productos = [cafeMolido, capuccino, cafeEspecial, chococcino, capuccinoConGalletitas, cafeEspecialConTorta, cafeConMedialunas, capuccinoConTorta];
-console.log(productos);
 
 
 let carrito = [];
@@ -86,7 +85,11 @@ const mostrarCarrito = () => {
                             <div>
                                 <h5 class = "nombre"> ${producto.nombre} </h5>
                                 <p class = "precio"> $${producto.precio} </p>
-                                <p class = "cantidad"> Cantidad: ${producto.cantidad} </p>
+                                <div class = "div-card">
+                                    <p class = "cantidad"> Cantidad: ${producto.cantidad} </p>
+                                    <button class = "btn btnCantidad"> + </button>
+                                    <button class = "btn btnCantidad"> - </button>
+                                </div>
                                 <button class = "btnCarrito" id="eliminar${producto.id}" > Eliminar </button>
                             </div>
                         </div>
@@ -132,3 +135,24 @@ const eliminarTodoElCarrito = () => {
 
     localStorage.clear();
 }
+
+const finalizarCompra = document.getElementById("finalizarCompra")
+
+finalizarCompra.addEventListener("click", () => {
+    Swal.fire({
+        title: "¿Desea finalizar su compra?",
+        showDenyButton: true,
+        confirmButtonText: "Sí",
+        denyButtonText: "No",
+    }).then((result) => {
+        if (result.isConfirmed) {
+        Swal.fire("Compra Realizada", '', 'success')
+        } else if (result.isDenied) {
+        Swal.fire("Compra Cancelada", '', 'info')
+        }
+    })
+})
+
+finalizarCompra.addEventListener("click", () => {
+    eliminarTodoElCarrito();
+})

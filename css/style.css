@@ -47,10 +47,6 @@
     border: solid 1px;
 }
 
-.cantidad{
-    display: flex;
-    justify-content: center;
-}
 
 .btnCarrito{
     margin-left: 20px;
@@ -78,4 +74,25 @@
     display: flex;
     justify-content: center;
     margin: 10px;
+}
+
+.btnCantidad{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    width: 35px;
+    margin: 8px;
+}
+
+.div-card{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.cantidad{
+    margin-top: 12px;
+    margin-right: 8px;
 }
